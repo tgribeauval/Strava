@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+  </head>
+  <script
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+  </script>
+  <script>
+
+    function getData() {
+
+    $.ajax({
+            url: 'https://www.strava.com/api/v3/athlete',
+            beforeSend: function(xhr) {
+                 xhr.setRequestHeader("Authorization", "Bearer 6426588e45355ea5057c6950610c0fd476e95b3f")
+            }, success: function(data){
+              parseData(data);
+
+            }, error: function(req, err) {
+
+            }
+    })
+
+  }
+
+  function parseData(data) {
+
+    let bio = data.bio;
+    let city = data.city;
+    let state = data.state;
+    let country = data.country;
+    let firstname = data.firstname;
+    let lastname = data.lastname;
+
+
+  }
+
+  </script>
+
+  <body>
+    <div class="div">
+      <button onclick="getData()">Get Strava Data</button>
+    </div>
+
+  </body>
+</html>
